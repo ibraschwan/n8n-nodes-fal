@@ -11,17 +11,53 @@ This is an n8n community node that integrates with [Fal.ai](https://fal.ai) to p
 - **Image-to-Video** generation with Sora 2, Veo 3.1, and more
 - **Video-to-Video** transformation with Sora 2 Remix
 - **Vision Language Models** for image analysis with GPT, Claude, Gemini, Llama
+- **Workflow Execution** - Chain multiple AI models together in custom workflows
+- **Queue Management** - Advanced control over request submission, status monitoring, and cancellation
 - **Utility Operations** (upscaling, background removal, NSFW detection)
 - Support for 60+ AI models across all capabilities
 - Queue-based processing with automatic status polling
+- Webhook support for asynchronous operations
 
 ## Installation
 
-Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
+### Option 1: Via n8n Community Nodes (Recommended - when published)
+
+1. In n8n, go to **Settings** → **Community Nodes**
+2. Click **Install a community node**
+3. Enter: `n8n-nodes-fal`
+4. Click **Install**
+
+### Option 2: Manual Installation (Development)
+
+```bash
+# Clone the repository
+git clone https://github.com/ibraschwan/n8n-nodes-fal.git
+cd n8n-nodes-fal
+
+# Install dependencies and build
+npm install
+npm run build
+
+# Link to your n8n installation
+cd ~/.n8n/custom/
+npm link /path/to/n8n-nodes-fal
+
+# Restart n8n
+```
+
+## Quick Start
+
+1. **Get your Fal.ai API key** from [fal.ai/dashboard/keys](https://fal.ai/dashboard/keys)
+2. **Add the Fal node** to your workflow
+3. **Configure credentials** with your API key
+4. **Choose a resource** (Text to Image, LLM, etc.)
+5. **Set parameters** and execute!
+
+See the [**Complete Usage Guide**](./USAGE_GUIDE.md) for detailed examples and workflows.
 
 ## Credentials
 
-You'll need a Fal.ai API key. You can obtain one from [Fal.ai](https://fal.ai).
+You'll need a Fal.ai API key. You can obtain one from [fal.ai/dashboard/keys](https://fal.ai/dashboard/keys).
 
 ## Operations
 
@@ -117,6 +153,23 @@ Analyze images using vision language models:
 - Support for multiple images per request
 - Customizable temperature and token limits
 
+### Workflow
+Execute custom workflows or pre-built workflow endpoints:
+- **Execute Custom Workflow** - Define multi-step workflows with JSON
+- **Execute Pre-Built Workflow** - Use Fal's pre-built workflows (e.g., `workflows/fal-ai/sdxl-sticker`)
+- Chain multiple models together in sequence
+- Webhook support for asynchronous processing
+- Example: Generate image → Remove background → Create sticker (all in one workflow)
+
+### Queue Management
+Advanced queue control for long-running or batch operations:
+- **Submit Request** - Queue any model request and get a request ID
+- **Get Status** - Check request status, queue position, and logs
+- **Stream Status** - Real-time status updates via Server-Sent Events
+- **Get Response** - Retrieve completed results
+- **Cancel Request** - Cancel queued requests before processing
+- Perfect for monitoring, batching, and advanced orchestration
+
 ### Utility
 Professional-grade utility operations:
 - **Image Upscaling** - Enhance images with Topaz AI (2x or 4x)
@@ -124,6 +177,30 @@ Professional-grade utility operations:
 - **Remove Background (Image)** - Bria RMBG 2.0 for clean cutouts
 - **Remove Background (Video)** - Automatic video background removal
 - **NSFW Detection** - Predict if images are NSFW or SFW
+
+## Example Workflows
+
+### Simple Image Generation
+```
+Manual Trigger → Fal (Text to Image, FLUX 1.1 Pro, "sunset over ocean")
+```
+
+### AI Content Pipeline
+```
+Fal (Generate) → Fal (Edit) → Fal (Upscale)
+```
+
+### Queue-Based Processing
+```
+Fal (Queue: Submit) → Wait → Fal (Queue: Get Status) → IF → Fal (Queue: Get Response)
+```
+
+### Multi-Step Video Creation
+```
+Fal (Text→Image) → Fal (Image→Video) → Fal (Upscale Video)
+```
+
+See the [**Complete Usage Guide**](./USAGE_GUIDE.md) for more examples!
 
 ## Compatibility
 
