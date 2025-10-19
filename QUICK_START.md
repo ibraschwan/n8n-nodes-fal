@@ -205,8 +205,8 @@ When you're ready to share your node with the world:
    ```
 
 4. **Share**
-   - Your node will be available at: `npm install n8n-nodes-fal`
-   - Users can install it via n8n Community Nodes UI
+   - Your node will be available at: `npm install @ibracob.dev/n8n-nodes-fal`
+   - Users can install it via n8n Community Nodes UI with: `@ibracob.dev/n8n-nodes-fal`
 
 ## Troubleshooting
 

@@ -15,7 +15,7 @@ Complete guide to using the Fal.ai node in n8n for AI-powered workflows.
 ### Option 1: Install from npm (when published)
 1. In n8n, go to **Settings** → **Community Nodes**
 2. Click **Install a community node**
-3. Enter: `n8n-nodes-fal`
+3. Enter: `@ibracob.dev/n8n-nodes-fal`
 4. Click **Install**
 
 ### Option 2: Manual Installation (Development)
