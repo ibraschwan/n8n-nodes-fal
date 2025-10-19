@@ -14,6 +14,7 @@ import * as vision from './resources/vision';
 import * as llm from './resources/llm';
 import * as utility from './resources/utility';
 import * as workflow from './resources/workflow';
+import * as queue from './resources/queue';
 
 export class Fal implements INodeType {
 	description: INodeTypeDescription = {
@@ -82,6 +83,10 @@ export class Fal implements INodeType {
 						value: 'workflow',
 					},
 					{
+						name: 'Queue',
+						value: 'queue',
+					},
+					{
 						name: 'Utility',
 						value: 'utility',
 					},
@@ -97,6 +102,8 @@ export class Fal implements INodeType {
 			...vision.description,
 			...workflow.workflowOperations,
 			...workflow.workflowFields,
+			...queue.queueOperations,
+			...queue.queueFields,
 			...utility.description,
 		],
 	};
@@ -126,6 +133,8 @@ export class Fal implements INodeType {
 					responseData = await vision.execute.execute.call(this, i);
 				} else if (resource === 'workflow') {
 					responseData = await workflow.executeWorkflow.call(this, i);
+				} else if (resource === 'queue') {
+					responseData = await queue.executeQueue.call(this, i);
 				} else if (resource === 'utility') {
 					responseData = await utility.execute.execute.call(this, i);
 				} else {

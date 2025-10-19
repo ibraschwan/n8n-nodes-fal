@@ -49,6 +49,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Webhook support for asynchronous processing
 - Queue-based execution with automatic polling
 
+#### Queue Management
+- Submit requests to the Fal queue API
+- Get status of queued requests with logs
+- Stream real-time status updates
+- Retrieve responses from completed requests
+- Cancel requests that haven't started processing
+- Full control over queue operations for advanced use cases
+
 #### Utility Operations
 - Image upscaling (Topaz AI, 2x/4x)
 - Video upscaling (Topaz AI, 2x/4x)
