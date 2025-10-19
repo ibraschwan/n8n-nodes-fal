@@ -48,7 +48,10 @@ async function executeCustomWorkflow(
 		workflowInput = JSON.parse(params.workflowInput);
 	} catch (error) {
 		const errorMessage = error instanceof Error ? error.message : String(error);
-		throw new NodeOperationError(this.getNode(), `Invalid workflow input JSON: ${errorMessage}`);
+		throw new NodeOperationError(
+			this.getNode(),
+			`Invalid workflow input JSON: ${errorMessage}`,
+		);
 	}
 
 	const body = {

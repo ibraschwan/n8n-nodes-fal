@@ -88,10 +88,7 @@ async function submitRequest(
 	}
 }
 
-async function getStatus(
-	this: IExecuteFunctions,
-	index: number,
-): Promise<INodeExecutionData[]> {
+async function getStatus(this: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
 	const params = this.getNodeParameter('', index) as QueueStatusParams;
 	const options = params.options || {};
 
@@ -120,10 +117,7 @@ async function getStatus(
 	}
 }
 
-async function getResponse(
-	this: IExecuteFunctions,
-	index: number,
-): Promise<INodeExecutionData[]> {
+async function getResponse(this: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
 	const params = this.getNodeParameter('', index) as QueueResponseParams;
 
 	try {
@@ -182,10 +176,7 @@ async function cancelRequest(
 	}
 }
 
-async function streamStatus(
-	this: IExecuteFunctions,
-	index: number,
-): Promise<INodeExecutionData[]> {
+async function streamStatus(this: IExecuteFunctions, index: number): Promise<INodeExecutionData[]> {
 	const params = this.getNodeParameter('', index) as QueueStreamStatusParams;
 	const options = params.options || {};
 
