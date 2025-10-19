@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree -L 3 -I 'node_modules|.git')",
+      "Bash(for file in nodes/Fal/resources/*/execute/index.ts)",
+      "Bash(do sed -i '' \"s|from ''../../utils/|from ''../../../utils/|g\" \"$file\")",
+      "Bash(done)",
+      "Bash(npm run build)",
+      "Bash(npm run lint)",
+      "Bash(npm run format -- --check)",
+      "Bash(git push -u origin main)",
+      "Bash(git add .)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
