@@ -42,6 +42,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 8 vision language models: Gemini 2.5, Claude 3.7/3.5, GPT-4o, Llama 3.2 90B Vision
 - Multi-image analysis support, customizable parameters
 
+#### Workflow
+- Execute custom workflow definitions
+- Execute pre-built workflow endpoints
+- Chain multiple Fal models in sequence
+- Webhook support for asynchronous processing
+- Queue-based execution with automatic polling
+
 #### Utility Operations
 - Image upscaling (Topaz AI, 2x/4x)
 - Video upscaling (Topaz AI, 2x/4x)

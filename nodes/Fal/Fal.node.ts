@@ -13,6 +13,7 @@ import * as videoToVideo from './resources/video-to-video';
 import * as vision from './resources/vision';
 import * as llm from './resources/llm';
 import * as utility from './resources/utility';
+import * as workflow from './resources/workflow';
 
 export class Fal implements INodeType {
 	description: INodeTypeDescription = {
@@ -77,6 +78,10 @@ export class Fal implements INodeType {
 						value: 'vision',
 					},
 					{
+						name: 'Workflow',
+						value: 'workflow',
+					},
+					{
 						name: 'Utility',
 						value: 'utility',
 					},
@@ -90,6 +95,8 @@ export class Fal implements INodeType {
 			...imageToVideo.description,
 			...videoToVideo.description,
 			...vision.description,
+			...workflow.workflowOperations,
+			...workflow.workflowFields,
 			...utility.description,
 		],
 	};
@@ -117,6 +124,8 @@ export class Fal implements INodeType {
 					responseData = await videoToVideo.execute.execute.call(this, i);
 				} else if (resource === 'vision') {
 					responseData = await vision.execute.execute.call(this, i);
+				} else if (resource === 'workflow') {
+					responseData = await workflow.executeWorkflow.call(this, i);
 				} else if (resource === 'utility') {
 					responseData = await utility.execute.execute.call(this, i);
 				} else {
