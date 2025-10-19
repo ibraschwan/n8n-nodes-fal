@@ -1,8 +1,34 @@
+# Source files (only publish dist/)
 nodes/
 credentials/
 *.ts
 !*.d.ts
 tsconfig.json
+
+# Development files
 .vscode/
 .idea/
+.claude/
 *.log
+.editorconfig
+.prettierrc.js
+eslint.config.mjs
+gulpfile.js
+
+# Git files
+.git/
+.gitignore
+
+# CI/CD
+.github/
+
+# Test and build artifacts
+node_modules/
+npm-debug.log*
+
+# Keep these in the package
+!README.md
+!LICENSE
+!CHANGELOG.md
+!USAGE_GUIDE.md
+!QUICK_START.md

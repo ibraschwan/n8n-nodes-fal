@@ -12,18 +12,28 @@
     "gpt",
     "claude",
     "gemini",
+    "openai",
+    "anthropic",
+    "google",
     "text-generation",
     "image-generation",
     "video-generation",
     "image-editing",
     "video-editing",
     "vision",
+    "workflow",
+    "queue",
     "sora",
     "veo",
     "flux",
     "stable-diffusion",
     "upscaling",
-    "background-removal"
+    "background-removal",
+    "automation",
+    "ml",
+    "machine-learning",
+    "deep-learning",
+    "diffusion"
   ],
   "license": "MIT",
   "homepage": "https://github.com/ibraschwan/n8n-nodes-fal",
@@ -34,6 +44,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ibraschwan/n8n-nodes-fal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ibraschwan/n8n-nodes-fal/issues"
   },
   "main": "index.js",
   "scripts": {
