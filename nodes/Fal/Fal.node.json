@@ -1,5 +1,5 @@
 {
-	"node": "@ibracob.dev/n8n-nodes-fal.fal",
+	"node": "@ibracob.dev/n8n-nodes-fal",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["AI"],
