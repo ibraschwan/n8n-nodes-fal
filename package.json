@@ -1,6 +1,6 @@
 {
-  "name": "@ibracob.dev/n8n-nodes-fal",
-  "version": "1.0.4",
+  "name": "@ibracob.dev/n8n-nodes-falai",
+  "version": "0.1.1",
   "description": "n8n node for Fal.ai - LLM text generation, image/video generation, image editing, and vision AI models",
   "keywords": [
     "n8n-community-node-package",
@@ -36,32 +36,33 @@
     "diffusion"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/ibraschwan/n8n-nodes-fal",
+  "homepage": "https://github.com/ibraschwan/n8n-nodes-falai",
   "author": {
     "name": "ibracob.dev",
     "email": "ben@ibracob.dev"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ibraschwan/n8n-nodes-fal.git"
+    "url": "git+https://github.com/ibraschwan/n8n-nodes-falai.git"
   },
   "bugs": {
-    "url": "https://github.com/ibraschwan/n8n-nodes-fal/issues"
+    "url": "https://github.com/ibraschwan/n8n-nodes-falai/issues"
   },
   "main": "index.js",
   "scripts": {
-    "build": "tsc && gulp build:icons",
-    "dev": "tsc --watch",
+    "build": "n8n-node build && cp nodes/Fal/Fal.node.json dist/nodes/Fal/",
+    "dev": "n8n-node dev",
     "format": "prettier nodes credentials --write",
-    "lint": "eslint nodes credentials",
-    "lintfix": "eslint nodes credentials --fix",
-    "prepublishOnly": "npm run build && gulp build:icons"
+    "lint": "n8n-node lint",
+    "lintfix": "n8n-node lint --fix",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
+    "strict": true,
     "credentials": [
       "dist/credentials/FalApi.credentials.js"
     ],
@@ -70,12 +71,9 @@
     ]
   },
   "devDependencies": {
+    "@n8n/node-cli": "*",
     "@types/node": "^20.10.0",
-    "@typescript-eslint/eslint-plugin": "^6.13.0",
-    "@typescript-eslint/parser": "^6.13.0",
-    "eslint": "^8.54.0",
-    "eslint-plugin-n8n-nodes-base": "^1.16.1",
-    "gulp": "^4.0.2",
+    "eslint": "^9.32.0",
     "n8n-workflow": "^1.0.0",
     "prettier": "^3.1.0",
     "typescript": "^5.3.0"

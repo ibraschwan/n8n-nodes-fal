@@ -1,4 +1,4 @@
-# n8n-nodes-fal
+# n8n-nodes-falai
 
 This is an n8n community node that integrates with [Fal.ai](https://fal.ai) to provide comprehensive AI capabilities including text generation, image/video generation, and multimodal AI models.
 
@@ -24,15 +24,15 @@ This is an n8n community node that integrates with [Fal.ai](https://fal.ai) to p
 
 1. In n8n, go to **Settings** → **Community Nodes**
 2. Click **Install a community node**
-3. Enter: `@ibracob.dev/n8n-nodes-fal`
+3. Enter: `@ibracob.dev/n8n-nodes-falai`
 4. Click **Install**
 
 ### Option 2: Manual Installation (Development)
 
 ```bash
 # Clone the repository
-git clone https://github.com/ibraschwan/n8n-nodes-fal.git
-cd n8n-nodes-fal
+git clone https://github.com/ibraschwan/n8n-nodes-falai.git
+cd n8n-nodes-falai
 
 # Install dependencies and build
 npm install
@@ -40,7 +40,7 @@ npm run build
 
 # Link to your n8n installation
 cd ~/.n8n/custom/
-npm link /path/to/n8n-nodes-fal
+npm link /path/to/n8n-nodes-falai
 
 # Restart n8n
 ```

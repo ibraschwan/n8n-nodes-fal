@@ -1,5 +1,5 @@
 {
-	"node": "fal",
+	"node": "@ibracob.dev/n8n-nodes-falai",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["AI"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://github.com/ibraschwan/n8n-nodes-fal"
+				"url": "https://github.com/ibraschwan/n8n-nodes-falai"
 			}
 		]
 	}
