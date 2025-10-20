@@ -1,6 +1,6 @@
 {
   "name": "@ibracob.dev/n8n-nodes-fal",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "n8n node for Fal.ai - LLM text generation, image/video generation, image editing, and vision AI models",
   "keywords": [
     "n8n-community-node-package",
