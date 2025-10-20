@@ -10,4 +10,9 @@ function buildCredentialIcons() {
 		.pipe(dest('dist/credentials'));
 }
 
-exports['build:icons'] = parallel(buildIcons, buildCredentialIcons);
+function buildNodeJson() {
+	return src('**/*.node.json', { cwd: 'nodes' })
+		.pipe(dest('dist/nodes'));
+}
+
+exports['build:icons'] = parallel(buildIcons, buildCredentialIcons, buildNodeJson);
