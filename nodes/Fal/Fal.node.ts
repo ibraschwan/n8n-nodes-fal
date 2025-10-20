@@ -23,6 +23,7 @@ export class Fal implements INodeType {
 		icon: 'file:fal-ai-logo.svg',
 		group: ['transform'],
 		version: 1,
+		usableAsTool: true,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		description: 'Interact with Fal.ai API',
 		defaults: {
@@ -51,8 +52,20 @@ export class Fal implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
+						name: 'Image Editing',
+						value: 'imageEditing',
+					},
+					{
+						name: 'Image to Video',
+						value: 'imageToVideo',
+					},
+					{
 						name: 'LLM (Text Generation)',
 						value: 'llm',
+					},
+					{
+						name: 'Queue',
+						value: 'queue',
 					},
 					{
 						name: 'Text to Image',
@@ -63,12 +76,8 @@ export class Fal implements INodeType {
 						value: 'textToVideo',
 					},
 					{
-						name: 'Image Editing',
-						value: 'imageEditing',
-					},
-					{
-						name: 'Image to Video',
-						value: 'imageToVideo',
+						name: 'Utility',
+						value: 'utility',
 					},
 					{
 						name: 'Video to Video',
@@ -81,14 +90,6 @@ export class Fal implements INodeType {
 					{
 						name: 'Workflow',
 						value: 'workflow',
-					},
-					{
-						name: 'Queue',
-						value: 'queue',
-					},
-					{
-						name: 'Utility',
-						value: 'utility',
 					},
 				],
 				default: 'textToImage',

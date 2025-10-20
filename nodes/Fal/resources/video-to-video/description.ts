@@ -87,13 +87,6 @@ export const videoToVideoFields: INodeProperties[] = [
 		},
 		options: [
 			{
-				displayName: 'Image URL',
-				name: 'imageUrl',
-				type: 'string',
-				default: '',
-				description: 'Optional image URL to guide the transformation',
-			},
-			{
 				displayName: 'Aspect Ratio',
 				name: 'aspectRatio',
 				type: 'options',
@@ -120,16 +113,23 @@ export const videoToVideoFields: INodeProperties[] = [
 				type: 'options',
 				options: [
 					{
-						name: '5 seconds',
+						name: '5 Seconds',
 						value: '5s',
 					},
 					{
-						name: '10 seconds',
+						name: '10 Seconds',
 						value: '10s',
 					},
 				],
 				default: '5s',
 				description: 'Duration of the output video',
+			},
+			{
+				displayName: 'Image URL',
+				name: 'imageUrl',
+				type: 'string',
+				default: '',
+				description: 'Optional image URL to guide the transformation',
 			},
 			{
 				displayName: 'Seed',

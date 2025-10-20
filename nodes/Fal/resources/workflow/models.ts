@@ -8,8 +8,8 @@ export interface WorkflowNode {
 	type: 'input' | 'run' | 'display';
 	depends: string[];
 	app?: string;
-	input?: Record<string, any>;
-	fields?: Record<string, any>;
+	input?: Record<string, unknown>;
+	fields?: Record<string, unknown>;
 }
 
 export interface WorkflowDefinition {
@@ -27,12 +27,12 @@ export interface WorkflowCompletionEvent {
 	type: 'completion';
 	node_id: string;
 	app_id?: string;
-	output: any;
+	output: unknown;
 }
 
 export interface WorkflowOutputEvent {
 	type: 'output';
-	output: any;
+	output: unknown;
 }
 
 export interface WorkflowErrorEvent {
@@ -41,7 +41,7 @@ export interface WorkflowErrorEvent {
 	message: string;
 	error: {
 		status?: number;
-		body?: any;
+		body?: unknown;
 	};
 }
 
@@ -66,7 +66,7 @@ export interface WorkflowExecutePrebuiltParams {
 	parameters?: {
 		parameter?: Array<{
 			name: string;
-			value: any;
+			value: string;
 		}>;
 	};
 	options?: {

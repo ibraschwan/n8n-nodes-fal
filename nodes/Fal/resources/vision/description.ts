@@ -89,26 +89,11 @@ export const visionFields: INodeProperties[] = [
 		},
 		options: [
 			{
-				displayName: 'System Prompt',
-				name: 'systemPrompt',
-				type: 'string',
-				typeOptions: {
-					rows: 2,
-				},
-				default: '',
-				description: 'System prompt to provide context or instructions',
-			},
-			{
-				displayName: 'Temperature',
-				name: 'temperature',
-				type: 'number',
-				typeOptions: {
-					minValue: 0,
-					maxValue: 2,
-					numberPrecision: 2,
-				},
-				default: 1.0,
-				description: 'Controls randomness in responses (0-2)',
+				displayName: 'Include Reasoning',
+				name: 'reasoning',
+				type: 'boolean',
+				default: false,
+				description: 'Whether reasoning should be part of the final answer',
 			},
 			{
 				displayName: 'Max Tokens',
@@ -136,11 +121,26 @@ export const visionFields: INodeProperties[] = [
 					'Processing priority (latency for low latency, throughput for most use cases)',
 			},
 			{
-				displayName: 'Include Reasoning',
-				name: 'reasoning',
-				type: 'boolean',
-				default: false,
-				description: 'Whether reasoning should be part of the final answer',
+				displayName: 'System Prompt',
+				name: 'systemPrompt',
+				type: 'string',
+				typeOptions: {
+					rows: 2,
+				},
+				default: '',
+				description: 'System prompt to provide context or instructions',
+			},
+			{
+				displayName: 'Temperature',
+				name: 'temperature',
+				type: 'number',
+				typeOptions: {
+					minValue: 0,
+					maxValue: 2,
+					numberPrecision: 2,
+				},
+				default: 1.0,
+				description: 'Controls randomness in responses (0-2)',
 			},
 		],
 	},

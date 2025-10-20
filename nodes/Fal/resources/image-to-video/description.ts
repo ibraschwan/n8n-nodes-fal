@@ -161,51 +161,6 @@ export const imageToVideoFields: INodeProperties[] = [
 		},
 		options: [
 			{
-				displayName: 'Duration',
-				name: 'duration',
-				type: 'options',
-				options: [
-					{
-						name: '5 seconds',
-						value: '5s',
-					},
-					{
-						name: '8 seconds',
-						value: '8s',
-					},
-					{
-						name: '10 seconds',
-						value: '10s',
-					},
-				],
-				default: '5s',
-				description: 'Duration of the generated video in seconds',
-			},
-			{
-				displayName: 'Resolution',
-				name: 'resolution',
-				type: 'options',
-				options: [
-					{
-						name: '720p',
-						value: '720p',
-					},
-					{
-						name: '1080p',
-						value: '1080p',
-					},
-				],
-				default: '720p',
-				description: 'Resolution of the generated video',
-			},
-			{
-				displayName: 'Generate Audio',
-				name: 'generateAudio',
-				type: 'boolean',
-				default: true,
-				description: 'Whether to generate audio. If false, 33% less credits will be used.',
-			},
-			{
 				displayName: 'Aspect Ratio',
 				name: 'aspectRatio',
 				type: 'options',
@@ -225,6 +180,51 @@ export const imageToVideoFields: INodeProperties[] = [
 				],
 				default: '16:9',
 				description: 'Aspect ratio of the generated video',
+			},
+			{
+				displayName: 'Duration',
+				name: 'duration',
+				type: 'options',
+				options: [
+					{
+						name: '5 Seconds',
+						value: '5s',
+					},
+					{
+						name: '8 Seconds',
+						value: '8s',
+					},
+					{
+						name: '10 Seconds',
+						value: '10s',
+					},
+				],
+				default: '5s',
+				description: 'Duration of the generated video in seconds',
+			},
+			{
+				displayName: 'Generate Audio',
+				name: 'generateAudio',
+				type: 'boolean',
+				default: true,
+				description: 'Whether to generate audio. If false, 33% less credits will be used.',
+			},
+			{
+				displayName: 'Resolution',
+				name: 'resolution',
+				type: 'options',
+				options: [
+					{
+						name: '720p',
+						value: '720p',
+					},
+					{
+						name: '1080p',
+						value: '1080p',
+					},
+				],
+				default: '720p',
+				description: 'Resolution of the generated video',
 			},
 			{
 				displayName: 'Seed',

@@ -22,7 +22,7 @@ export const workflowOperations: INodeProperties[] = [
 				name: 'Execute Pre-Built Workflow',
 				value: 'executePrebuilt',
 				description: 'Execute a pre-built workflow endpoint',
-				action: 'Execute pre-built workflow',
+				action: 'Execute pre built workflow',
 			},
 		],
 		default: 'executePrebuilt',

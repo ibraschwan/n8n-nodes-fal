@@ -13,16 +13,10 @@ export const queueOperations: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'Submit Request',
-				value: 'submit',
-				description: 'Submit a request to the queue',
-				action: 'Submit request to queue',
-			},
-			{
-				name: 'Get Status',
-				value: 'getStatus',
-				description: 'Get the status of a queued request',
-				action: 'Get request status',
+				name: 'Cancel Request',
+				value: 'cancel',
+				description: 'Cancel a queued request that has not started processing',
+				action: 'Cancel request',
 			},
 			{
 				name: 'Get Response',
@@ -31,16 +25,22 @@ export const queueOperations: INodeProperties[] = [
 				action: 'Get request response',
 			},
 			{
-				name: 'Cancel Request',
-				value: 'cancel',
-				description: 'Cancel a queued request that has not started processing',
-				action: 'Cancel request',
+				name: 'Get Status',
+				value: 'getStatus',
+				description: 'Get the status of a queued request',
+				action: 'Get request status',
 			},
 			{
 				name: 'Stream Status',
 				value: 'streamStatus',
 				description: 'Stream status updates until request completes',
 				action: 'Stream request status',
+			},
+			{
+				name: 'Submit Request',
+				value: 'submit',
+				description: 'Submit a request to the queue',
+				action: 'Submit request to queue',
 			},
 		],
 		default: 'submit',

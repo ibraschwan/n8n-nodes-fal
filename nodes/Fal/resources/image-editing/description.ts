@@ -87,6 +87,29 @@ export const imageEditingFields: INodeProperties[] = [
 		},
 		options: [
 			{
+				displayName: 'Guidance Scale',
+				name: 'guidanceScale',
+				type: 'number',
+				typeOptions: {
+					minValue: 0,
+					maxValue: 20,
+				},
+				default: 7.5,
+				description: 'How closely to follow the prompt (0-20)',
+			},
+			{
+				displayName: 'Height',
+				name: 'height',
+				type: 'number',
+				displayOptions: {
+					show: {
+						imageSize: ['custom'],
+					},
+				},
+				default: 1024,
+				description: 'Height of the edited image',
+			},
+			{
 				displayName: 'Image Size',
 				name: 'imageSize',
 				type: 'options',
@@ -112,28 +135,11 @@ export const imageEditingFields: INodeProperties[] = [
 				description: 'The size of the edited image',
 			},
 			{
-				displayName: 'Width',
-				name: 'width',
+				displayName: 'Number of Inference Steps',
+				name: 'numInferenceSteps',
 				type: 'number',
-				displayOptions: {
-					show: {
-						imageSize: ['custom'],
-					},
-				},
-				default: 1024,
-				description: 'Width of the edited image',
-			},
-			{
-				displayName: 'Height',
-				name: 'height',
-				type: 'number',
-				displayOptions: {
-					show: {
-						imageSize: ['custom'],
-					},
-				},
-				default: 1024,
-				description: 'Height of the edited image',
+				default: 50,
+				description: 'Number of denoising steps',
 			},
 			{
 				displayName: 'Seed',
@@ -141,17 +147,6 @@ export const imageEditingFields: INodeProperties[] = [
 				type: 'number',
 				default: -1,
 				description: 'Random seed for reproducibility. Use -1 for random.',
-			},
-			{
-				displayName: 'Guidance Scale',
-				name: 'guidanceScale',
-				type: 'number',
-				typeOptions: {
-					minValue: 0,
-					maxValue: 20,
-				},
-				default: 7.5,
-				description: 'How closely to follow the prompt (0-20)',
 			},
 			{
 				displayName: 'Strength',
@@ -166,11 +161,16 @@ export const imageEditingFields: INodeProperties[] = [
 				description: 'How much to transform the original image (0-1)',
 			},
 			{
-				displayName: 'Number of Inference Steps',
-				name: 'numInferenceSteps',
+				displayName: 'Width',
+				name: 'width',
 				type: 'number',
-				default: 50,
-				description: 'Number of denoising steps',
+				displayOptions: {
+					show: {
+						imageSize: ['custom'],
+					},
+				},
+				default: 1024,
+				description: 'Width of the edited image',
 			},
 		],
 	},

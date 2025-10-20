@@ -34,7 +34,11 @@ async function executeCustomWorkflow(
 
 	let workflowDefinition: WorkflowDefinition;
 	try {
-		workflowDefinition = JSON.parse(params.workflowDefinition);
+		const parsed = JSON.parse(params.workflowDefinition);
+		if (parsed === null || Array.isArray(parsed) || typeof parsed !== 'object') {
+			throw new Error('expected an object at the root level.');
+		}
+		workflowDefinition = parsed as WorkflowDefinition;
 	} catch (error) {
 		const errorMessage = error instanceof Error ? error.message : String(error);
 		throw new NodeOperationError(
@@ -43,9 +47,13 @@ async function executeCustomWorkflow(
 		);
 	}
 
-	let workflowInput: Record<string, any>;
+	let workflowInput: IDataObject;
 	try {
-		workflowInput = JSON.parse(params.workflowInput);
+		const parsed = JSON.parse(params.workflowInput);
+		if (parsed === null || Array.isArray(parsed) || typeof parsed !== 'object') {
+			throw new Error('expected an object at the root level.');
+		}
+		workflowInput = parsed as IDataObject;
 	} catch (error) {
 		const errorMessage = error instanceof Error ? error.message : String(error);
 		throw new NodeOperationError(
@@ -69,7 +77,7 @@ async function executePrebuiltWorkflow(
 	const params = this.getNodeParameter('', index) as WorkflowExecutePrebuiltParams;
 	const options = params.options || {};
 
-	const body: Record<string, any> = {};
+	const body: IDataObject = {};
 
 	if (params.parameters?.parameter) {
 		for (const param of params.parameters.parameter) {
@@ -89,7 +97,7 @@ async function executePrebuiltWorkflow(
 async function executeWorkflowRequest(
 	this: IExecuteFunctions,
 	endpoint: string,
-	body: Record<string, any>,
+	body: IDataObject,
 	options: {
 		includeIntermediateResults?: boolean;
 		webhookUrl?: string;
@@ -137,7 +145,7 @@ async function executeWorkflowRequest(
 async function executeWorkflowWithWebhook(
 	this: IExecuteFunctions,
 	endpoint: string,
-	body: Record<string, any>,
+	body: IDataObject,
 	webhookUrl: string,
 ): Promise<INodeExecutionData[]> {
 	try {

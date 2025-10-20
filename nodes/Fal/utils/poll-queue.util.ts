@@ -1,4 +1,4 @@
-import { IExecuteFunctions, IDataObject, NodeApiError } from 'n8n-workflow';
+import { IExecuteFunctions, IDataObject, NodeApiError, sleep } from 'n8n-workflow';
 import { QueueStatus } from '../enums';
 import { QueueStatusResponse } from '../interfaces';
 
@@ -67,7 +67,7 @@ export async function pollQueue(
 		}
 
 		// Request is still in queue or in progress, wait before polling again
-		await new Promise((resolve) => setTimeout(resolve, pollInterval));
+		await sleep(pollInterval);
 	}
 
 	// Max attempts reached

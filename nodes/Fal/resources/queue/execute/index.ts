@@ -42,9 +42,14 @@ async function submitRequest(
 	const params = this.getNodeParameter('', index) as QueueSubmitParams;
 	const options = params.options || {};
 
-	let inputParameters: Record<string, any>;
+	let inputParameters: Record<string, unknown>;
 	try {
-		inputParameters = JSON.parse(params.inputParameters);
+		const parsed = JSON.parse(params.inputParameters);
+		if (parsed === null || Array.isArray(parsed) || typeof parsed !== 'object') {
+			throw new Error('expected an object at the root level.');
+		}
+
+		inputParameters = parsed as Record<string, unknown>;
 	} catch (error) {
 		const errorMessage = error instanceof Error ? error.message : String(error);
 		throw new NodeOperationError(
@@ -244,7 +249,7 @@ async function streamStatus(this: IExecuteFunctions, index: number): Promise<INo
 							if (statusUpdate.status === 'COMPLETED') {
 								finalStatus = statusUpdate;
 							}
-						} catch (parseError) {
+						} catch {
 							// Ignore parse errors for ping messages or malformed data
 						}
 					}

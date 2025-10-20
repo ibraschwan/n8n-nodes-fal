@@ -72,6 +72,29 @@ export const textToImageFields: INodeProperties[] = [
 		},
 		options: [
 			{
+				displayName: 'Guidance Scale',
+				name: 'guidanceScale',
+				type: 'number',
+				typeOptions: {
+					minValue: 0,
+					maxValue: 20,
+				},
+				default: 7.5,
+				description: 'How closely to follow the prompt (0-20)',
+			},
+			{
+				displayName: 'Height',
+				name: 'height',
+				type: 'number',
+				displayOptions: {
+					show: {
+						imageSize: ['custom'],
+					},
+				},
+				default: 1024,
+				description: 'Height of the generated image',
+			},
+			{
 				displayName: 'Image Size',
 				name: 'imageSize',
 				type: 'options',
@@ -97,53 +120,11 @@ export const textToImageFields: INodeProperties[] = [
 				description: 'The size of the generated image',
 			},
 			{
-				displayName: 'Width',
-				name: 'width',
-				type: 'number',
-				displayOptions: {
-					show: {
-						imageSize: ['custom'],
-					},
-				},
-				default: 1024,
-				description: 'Width of the generated image',
-			},
-			{
-				displayName: 'Height',
-				name: 'height',
-				type: 'number',
-				displayOptions: {
-					show: {
-						imageSize: ['custom'],
-					},
-				},
-				default: 1024,
-				description: 'Height of the generated image',
-			},
-			{
 				displayName: 'Number of Images',
 				name: 'numImages',
 				type: 'number',
 				default: 1,
 				description: 'Number of images to generate',
-			},
-			{
-				displayName: 'Seed',
-				name: 'seed',
-				type: 'number',
-				default: -1,
-				description: 'Random seed for reproducibility. Use -1 for random.',
-			},
-			{
-				displayName: 'Guidance Scale',
-				name: 'guidanceScale',
-				type: 'number',
-				typeOptions: {
-					minValue: 0,
-					maxValue: 20,
-				},
-				default: 7.5,
-				description: 'How closely to follow the prompt (0-20)',
 			},
 			{
 				displayName: 'Number of Inference Steps',
@@ -158,6 +139,25 @@ export const textToImageFields: INodeProperties[] = [
 				type: 'boolean',
 				default: true,
 				description: 'Whether to run safety checks on generated images',
+			},
+			{
+				displayName: 'Seed',
+				name: 'seed',
+				type: 'number',
+				default: -1,
+				description: 'Random seed for reproducibility. Use -1 for random.',
+			},
+			{
+				displayName: 'Width',
+				name: 'width',
+				type: 'number',
+				displayOptions: {
+					show: {
+						imageSize: ['custom'],
+					},
+				},
+				default: 1024,
+				description: 'Width of the generated image',
 			},
 		],
 	},

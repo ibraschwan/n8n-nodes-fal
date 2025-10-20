@@ -73,27 +73,12 @@ export const llmFields: INodeProperties[] = [
 		},
 		options: [
 			{
-				displayName: 'System Prompt',
-				name: 'systemPrompt',
-				type: 'string',
-				typeOptions: {
-					rows: 2,
-				},
-				default: '',
-				description: 'System prompt to provide context or instructions',
-			},
-			{
-				displayName: 'Temperature',
-				name: 'temperature',
-				type: 'number',
-				typeOptions: {
-					minValue: 0,
-					maxValue: 2,
-					numberPrecision: 2,
-				},
-				default: 1.0,
+				displayName: 'Include Reasoning',
+				name: 'reasoning',
+				type: 'boolean',
+				default: false,
 				description:
-					'Controls randomness in responses (0-2). Lower = more predictable, Higher = more creative.',
+					'Whether reasoning should be part of the final answer (for reasoning models)',
 			},
 			{
 				displayName: 'Max Tokens',
@@ -122,12 +107,27 @@ export const llmFields: INodeProperties[] = [
 				description: 'Processing priority',
 			},
 			{
-				displayName: 'Include Reasoning',
-				name: 'reasoning',
-				type: 'boolean',
-				default: false,
+				displayName: 'System Prompt',
+				name: 'systemPrompt',
+				type: 'string',
+				typeOptions: {
+					rows: 2,
+				},
+				default: '',
+				description: 'System prompt to provide context or instructions',
+			},
+			{
+				displayName: 'Temperature',
+				name: 'temperature',
+				type: 'number',
+				typeOptions: {
+					minValue: 0,
+					maxValue: 2,
+					numberPrecision: 2,
+				},
+				default: 1.0,
 				description:
-					'Whether reasoning should be part of the final answer (for reasoning models)',
+					'Controls randomness in responses (0-2). Lower = more predictable, Higher = more creative.',
 			},
 		],
 	},

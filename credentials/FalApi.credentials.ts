@@ -1,3 +1,4 @@
+import type { Icon } from 'n8n-workflow';
 import {
 	IAuthenticateGeneric,
 	ICredentialTestRequest,
@@ -8,6 +9,7 @@ import {
 export class FalApi implements ICredentialType {
 	name = 'falApi';
 	displayName = 'Fal API';
+	icon: Icon = 'file:fal-ai-logo.svg';
 	documentationUrl = 'https://fal.ai/docs';
 	properties: INodeProperties[] = [
 		{

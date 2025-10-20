@@ -84,7 +84,7 @@ export type QueueStatusResponse =
 export interface QueueResponseData {
 	status: 'COMPLETED';
 	logs?: RequestLog[];
-	response: Record<string, any>;
+	response: Record<string, unknown>;
 }
 
 export interface QueueCancelResponse {

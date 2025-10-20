@@ -72,27 +72,6 @@ export const textToVideoFields: INodeProperties[] = [
 		},
 		options: [
 			{
-				displayName: 'Duration',
-				name: 'duration',
-				type: 'options',
-				options: [
-					{
-						name: '4 seconds',
-						value: '4s',
-					},
-					{
-						name: '6 seconds',
-						value: '6s',
-					},
-					{
-						name: '8 seconds',
-						value: '8s',
-					},
-				],
-				default: '8s',
-				description: 'Duration of the generated video in seconds',
-			},
-			{
 				displayName: 'Aspect Ratio',
 				name: 'aspectRatio',
 				type: 'options',
@@ -114,21 +93,39 @@ export const textToVideoFields: INodeProperties[] = [
 				description: 'Aspect ratio of the generated video',
 			},
 			{
-				displayName: 'Resolution',
-				name: 'resolution',
+				displayName: 'Auto Fix',
+				name: 'autoFix',
+				type: 'boolean',
+				default: true,
+				description: 'Whether to automatically fix prompts that fail content policy',
+			},
+			{
+				displayName: 'Duration',
+				name: 'duration',
 				type: 'options',
 				options: [
 					{
-						name: '720p',
-						value: '720p',
+						name: '4 Seconds',
+						value: '4s',
 					},
 					{
-						name: '1080p',
-						value: '1080p',
+						name: '6 Seconds',
+						value: '6s',
+					},
+					{
+						name: '8 Seconds',
+						value: '8s',
 					},
 				],
-				default: '720p',
-				description: 'Resolution of the generated video',
+				default: '8s',
+				description: 'Duration of the generated video in seconds',
+			},
+			{
+				displayName: 'Enhance Prompt',
+				name: 'enhancePrompt',
+				type: 'boolean',
+				default: true,
+				description: 'Whether to enhance the video generation',
 			},
 			{
 				displayName: 'Generate Audio',
@@ -148,18 +145,21 @@ export const textToVideoFields: INodeProperties[] = [
 				description: 'A negative prompt to guide the video generation',
 			},
 			{
-				displayName: 'Enhance Prompt',
-				name: 'enhancePrompt',
-				type: 'boolean',
-				default: true,
-				description: 'Whether to enhance the video generation',
-			},
-			{
-				displayName: 'Auto Fix',
-				name: 'autoFix',
-				type: 'boolean',
-				default: true,
-				description: 'Whether to automatically fix prompts that fail content policy',
+				displayName: 'Resolution',
+				name: 'resolution',
+				type: 'options',
+				options: [
+					{
+						name: '720p',
+						value: '720p',
+					},
+					{
+						name: '1080p',
+						value: '1080p',
+					},
+				],
+				default: '720p',
+				description: 'Resolution of the generated video',
 			},
 			{
 				displayName: 'Seed',
