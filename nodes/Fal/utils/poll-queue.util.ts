@@ -4,12 +4,14 @@ import { QueueStatusResponse } from '../interfaces';
 
 /**
  * Poll the Fal.ai queue until the request is completed or failed
+ * @param modelEndpoint The model endpoint (e.g., 'fal-ai/flux/dev')
  * @param requestId The request ID to poll
  * @param responseUrl Optional response URL from the queue submission
  * @returns The final response data
  */
 export async function pollQueue(
 	this: IExecuteFunctions,
+	modelEndpoint: string,
 	requestId: string,
 	responseUrl?: string,
 ): Promise<IDataObject> {
@@ -26,7 +28,7 @@ export async function pollQueue(
 			'falApi',
 			{
 				method: 'GET',
-				url: `/requests/${requestId}/status`,
+				url: `/${modelEndpoint}/requests/${requestId}/status`,
 				json: true,
 			},
 		);

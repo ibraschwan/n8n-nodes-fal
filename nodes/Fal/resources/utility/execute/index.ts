@@ -59,8 +59,9 @@ export async function execute(this: IExecuteFunctions, itemIndex: number): Promi
 		});
 	}
 
-	// Poll for completion
-	const result = await pollQueue.call(this, queueData.request_id, queueData.response_url);
+	// Poll for completion - use endpoint without leading slash for pollQueue
+	const modelEndpoint = endpoint.startsWith('/') ? endpoint.substring(1) : endpoint;
+	const result = await pollQueue.call(this, modelEndpoint, queueData.request_id, queueData.response_url);
 
 	return result;
 }
