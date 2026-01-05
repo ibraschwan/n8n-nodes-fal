@@ -125,8 +125,8 @@ async function executeWorkflowRequest(
 		const requestId = queueResponse.request_id;
 		const responseUrl = queueResponse.response_url;
 
-		// Poll for result
-		const result = (await pollQueue.call(this, requestId, responseUrl)) as IDataObject;
+		// Poll for result - use endpoint for the model path
+		const result = (await pollQueue.call(this, endpoint, requestId, responseUrl)) as IDataObject;
 
 		return [
 			{

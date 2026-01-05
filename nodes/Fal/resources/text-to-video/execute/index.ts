@@ -60,7 +60,7 @@ export async function execute(this: IExecuteFunctions, itemIndex: number): Promi
 	}
 
 	// Poll for completion
-	const result = await pollQueue.call(this, queueData.request_id, queueData.response_url);
+	const result = await pollQueue.call(this, model, queueData.request_id, queueData.response_url);
 
 	return result;
 }

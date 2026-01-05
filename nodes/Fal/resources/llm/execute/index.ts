@@ -51,8 +51,8 @@ export async function execute(this: IExecuteFunctions, itemIndex: number): Promi
 		});
 	}
 
-	// Poll for completion
-	const result = await pollQueue.call(this, queueData.request_id, queueData.response_url);
+	// Poll for completion - LLM uses a fixed endpoint 'fal-ai/any-llm'
+	const result = await pollQueue.call(this, 'fal-ai/any-llm', queueData.request_id, queueData.response_url);
 
 	return result;
 }
